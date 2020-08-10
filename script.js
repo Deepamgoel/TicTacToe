@@ -64,6 +64,9 @@ function onGridButtonClick(event) {
 }
 
 function checkWin(id) {
+    if (turn < 5)
+        return;
+
     var r = Math.floor(id / 10);
     var c = id % 10;
     var value = gridEntry[r][c];
@@ -79,7 +82,7 @@ function checkWin(id) {
     }
 
     // diagonal
-    if (id == 10 || id == 12)
+    if (id == 10 || id == 12 || id == 01 || id == 21)
         return;
     if (gridEntry[0][0] == value && gridEntry[1][1] == value && gridEntry[2][2] == value) {
         return { 'ids': ['00', '11', '22'] };
